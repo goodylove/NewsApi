@@ -1,0 +1,30 @@
+.my-brand {
+  color: white;
+  font-weight: bolder;
+  font-size: 24px;
+}
+.news {
+  background-color: rgb(247, 9, 9);
+  color: white;
+
+  font-size: larger;
+}
+.my-images {
+  height: 100%;
+}
+.my-slide {
+  margin: 10px auto;
+}
+.foregin-polictis-sports {
+  display: grid;
+  grid-template-columns: auto;
+}
+
+.foreign,
+.sports,
+.politics {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  margin: 10px;
+}
