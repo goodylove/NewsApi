@@ -3,6 +3,7 @@ const api = `https://newsapi.org/v2/top-headlines?country=ng&apiKey=${apiKey}`;
 const api_url = `https://newsapi.org/v2/everything?q=sports&apiKey=${apiKey}`;
 const for_url = `https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=${apiKey}`;
 const apiAd = `https://newsapi.org/v2/everything?q=politics&apiKey=${apiKey}`;
+const apiEn = `https://newsapi.org/v2/everything?q=Entertainment&apiKey=${apiKey}`;
 
 fetch(api)
   .then((res) => {
@@ -15,25 +16,25 @@ fetch(api)
         class="carousel slide"
         data-bs-ride="carousel"
       >
-        <div class="carousel-inner" style="height:600px;">
-          <div class="carousel-item active">
-          <img  class="img-fluid w-100 h-60" src="${data.articles[0].urlToImage}"/>
+        <div class="carousel-inner text-light" style="height:700px;">
+          <div class="carousel-item active h-100">
+          <img  class="img-fluid w-100 h-60" src="${data.articles[1].urlToImage}"/>
          
-          <p class="title">${data.articles[0].title}</p>
+          <p class="title bg-secondary px-3">${data.articles[1].title}</p>
        
           </div>
          
-          <div class="carousel-item">
+          <div class="carousel-item h-100">
+          <img  class="img-fluid w-100 h-100" src="${data.articles[4].urlToImage}"/>
+         
+          <p class="title bg-secondary px-3">${data.articles[4].title}</p>
+       
+         
+          </div>
+          <div class="carousel-item h-100">
           <img  class="img-fluid w-100 h-60" src="${data.articles[7].urlToImage}"/>
          
           <p class="title">${data.articles[7].title}</p>
-       
-         
-          </div>
-          <div class="carousel-item">
-          <img  class="img-fluid w-100 h-60" src="${data.articles[2].urlToImage}"/>
-         
-          <p class="title">${data.articles[0].title}</p>
        
           </div>
        
@@ -56,7 +57,7 @@ fetch(api)
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
-        <div class="text-item">{${data.articles[0].title}}</div>
+        
         
       </div>`;
     document.querySelector(".slide").innerHTML = display;
@@ -66,13 +67,9 @@ fetch(for_url)
     return res.json();
   })
   .then((data) => {
-    console.log(data);
+    // console.log(data);
 
     const foreginNew = `
-      <div
-      class="container-fluid d-flex justify-content-center align-items-center"
-    >
-     
       <div class="foregin-polictis-sports">
       <h3>Foreign News</h3>
       <div class="foreign">
@@ -180,47 +177,48 @@ fetch(apiAd)
     </div>`;
     document.querySelector(".politics-news").innerHTML = PoliticsNew;
   });
-//
-//   <div class="side-menu">
-//     <h4>Breaking-News</h4>
-//     <div class="breaking-news">
-//       <div class="card" style="width: 18rem">
-//         <img src="${data.articles[10].urlToImage}" class="card-img-top" alt="..." />
-//         <div class="card-body">
-//         <p class="card-text">
-//         ${data.articles[10].title}
-//         </p>
-//         </div>
-//       </div>
-//     </div>
-//     <div class="latest-news">
-//       <div class="card" style="width: 18rem">
-//         <img src="${data.articles[4].urlToImage}" class="card-img-top" alt="..." />
-//         <div class="card-body">
-//         <p class="card-text">
-//         ${data.articles[4].title}
-//         </p>
-//         </div>
-//       </div>
-//     </div>
-//     <div class="entertainment">
-//       <div class="card" style="width: 18rem">
-//         <img src="${data.articles[11].urlToImage}" class="card-img-top" alt="..." />
-//         <div class="card-body">
-//           <p class="card-text">
-//           ${data.articles[11].title}
-//           </p>
-//         </div>
-//       </div>
-//     </div>
-//   </div>
+fetch(apiEn)
+  .then((res) => {
+    return res.json();
+  })
+  .then((data) => {
+    const display3 = `<div class="side-menu">
+    <h4>Entertainment-News</h4>
+    <div class="breaking-news">
+      <div class="card" style="width: 18rem">
+        <img src="${data.articles[10].urlToImage}" class="card-img-top" alt="..." />
+        <div class="card-body">
+        <p class="card-text">
+        ${data.articles[10].title}
+        </p>
+        </div>
+      </div>
+    </div>
+    <div class="latest-news">
+      <div class="card" style="width: 18rem">
+        <img src="${data.articles[4].urlToImage}" class="card-img-top" alt="..." />
+        <div class="card-body">
+        <p class="card-text">
+        ${data.articles[4].title}
+        </p>
+        </div>
+      </div>
+    </div>
+    <div class="entertainment">
+      <div class="card" style="width: 18rem">
+        <img src="${data.articles[11].urlToImage}" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <p class="card-text">
+          ${data.articles[11].title}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-// </div>`;
-
-// fetch(api_url)
-//   .then((res) => {
-//     return res.json();
-//   })
-//   .then((data) => {
-//     console.log(data);
-//   });
+</div>`;
+    document.querySelector(".entertain-news").innerHTML = display3;
+  });
+{
+  /* <div class="text-item">{${data.articles[0].title}}</div> */
+}
